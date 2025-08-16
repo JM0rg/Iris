@@ -37,7 +37,7 @@ plugins {
 }
 
 group = "com.volmit"
-version = "3.7.0-1.20.1-1.21.7"
+version = "3.7.0-1.20.1-1.21.8"
 
 apply<ApiGenerator>()
 
@@ -66,6 +66,7 @@ val color = "truecolor"
 val errorReporting = false
 
 val nmsBindings = mapOf(
+        "v1_21_R6" to "1.21.8-R0.1-SNAPSHOT",
         "v1_21_R5" to "1.21.7-R0.1-SNAPSHOT",
         "v1_21_R4" to "1.21.5-R0.1-SNAPSHOT",
         "v1_21_R3" to "1.21.4-R0.1-SNAPSHOT",
@@ -123,6 +124,11 @@ tasks {
         from(project(":core").tasks.shadowJar.flatMap { it.archiveFile }.map { zipTree(it) })
         from(project(":core:agent").tasks.jar.flatMap { it.archiveFile })
         archiveFileName.set("Iris-${project.version}.jar")
+        
+        // Explicitly include plugin.yml to ensure it's not excluded
+        from(project(":core").tasks.shadowJar.flatMap { it.archiveFile }.map { zipTree(it) }) {
+            include("plugin.yml")
+        }
     }
 
     register<Copy>("iris") {

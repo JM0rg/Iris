@@ -152,7 +152,8 @@ tasks {
 
 /**
  * Gradle is weird sometimes, we need to delete the plugin yml from the build folder to actually filter properly.
+ * COMMENTED OUT: This was causing the plugin.yml to be missing from the final JAR
  */
-afterEvaluate {
-    layout.buildDirectory.file("resources/main/plugin.yml").get().asFile.delete()
-}
+// afterEvaluate {
+//     layout.buildDirectory.file("resources/main/plugin.yml").get().asFile.delete()
+// }

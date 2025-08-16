@@ -27,17 +27,18 @@ import java.util.List;
 import java.util.Map;
 
 public class INMS {
-    private static final Map<String, String> REVISION = Map.of(
-            "1.20.5", "v1_20_R4",
-            "1.20.6", "v1_20_R4",
-            "1.21", "v1_21_R1",
-            "1.21.1", "v1_21_R1",
-            "1.21.2", "v1_21_R2",
-            "1.21.3", "v1_21_R2",
-            "1.21.4", "v1_21_R3",
-            "1.21.5", "v1_21_R4",
-            "1.21.6", "v1_21_R5",
-            "1.21.7", "v1_21_R5"
+    private static final Map<String, String> REVISION = Map.ofEntries(
+            Map.entry("1.20.5", "v1_20_R4"),
+            Map.entry("1.20.6", "v1_20_R4"),
+            Map.entry("1.21", "v1_21_R1"),
+            Map.entry("1.21.1", "v1_21_R1"),
+            Map.entry("1.21.2", "v1_21_R2"),
+            Map.entry("1.21.3", "v1_21_R2"),
+            Map.entry("1.21.4", "v1_21_R3"),
+            Map.entry("1.21.5", "v1_21_R4"),
+            Map.entry("1.21.6", "v1_21_R5"),
+            Map.entry("1.21.7", "v1_21_R5"),
+            Map.entry("1.21.8", "v1_21_R6")
     );
     private static final List<Version> PACKS = List.of(
             new Version(21, 5, "31100"),
